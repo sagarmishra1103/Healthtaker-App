@@ -1,0 +1,81 @@
+body {
+    background-color:  #F4F7F9; /* Soft light background to match index.html */
+}
+
+.login-header {
+    background-color: rgb(54, 21, 21); /* White background for the header */
+    padding: 10px; /* Add padding to the header */
+    border-radius: 0; /* Make the container rectangular */
+}
+
+.container {
+    padding: 10px; /* Add padding to the top and bottom of the container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120vh; /* Full viewport height */
+}
+
+.form-group {
+    margin-bottom: 5px; /* Adjust margin as needed */
+}
+
+.signup-card {
+    background-color: rgba(255, 255, 255, 0.8); /* White background with 80% opacity */
+    box-shadow: none; /* Remove shadow */
+    border: none; /* Remove default border */
+    padding: 20px;
+}
+
+.placeholder-image {
+    height: 70%;
+    width: 70%;
+    display: flex; /* Added to center the image */
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.login-card {
+    height: 80%; /* Ensure the login card takes full height */
+    display: flex; /* Added to center the content */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center the content vertically */
+}
+
+.img-fluid {
+    border-radius: 10px;
+}
+
+.btn {
+    background-color: #32558a; /* Updated button color */
+    color: white; /* White text for buttons */
+    border-radius: 25px; /* Rounded buttons */
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #284066d7; /* Updated hover color */
+}
+
+.login-background {
+    background-image: url('../assets/loginpage.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.strength-meter {
+    height: 5px;
+    width: 0;
+    background-color: red;
+    transition: width 0.3s ease;
+}
+
+.password-strength-indicator {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}

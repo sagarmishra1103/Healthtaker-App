@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Dashboard-HealthTaker</title>
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="{{ url_for('static', filename='assets/logo/logo.png') }}" alt="Logo">
+                </span>
+                <div class="text header-text">
+                    <span class="name">HealthTaker</span>
+                    <span class="profession">your heathtaker</span>
+                </div>
+            </div>
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+                <ul class="menu-links">
+                    <li class="search-box">
+                        <a href="#"> 
+                            <i class='bx bx-search icon' ></i>
+                            <input type="text" placeholder="Search...">
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-home-alt icon'></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="/ai-suggestion">
+                            <i class='bx bx-message icon'></i>
+                            <span class="text nav-text">Health Suggestions</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="health-report">
+                            <i class='bx bx-bar-chart-alt-2 icon'></i>
+                            <span class="text nav-text">Health Report Analyis</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="/medicine-info">
+                            <i class='bx bx-capsule icon' ></i>
+                            <span class="text nav-text">Medicine Finder</span>
+                        </a>
+                    </li>
+                    
+                   
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-cog icon'></i>
+                            <span class="text nav-text">Settings</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-user icon' ></i>
+                            <span class="text nav-text">Profile</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                
+                <li class="">
+                    <a href="/login">
+                        <i class='bx bx-log-out icon' ></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+
+                <li class="mode">
+                    <div class="moon-sun">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark Mode</span>
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+           
+            </div>
+        </div>
+    </nav>
+
+    
+    <section class="home">
+        <!-- Main Content -->
+
+        {% block content %}   
+        <div class="text">Dashboard</div> 
+        {% endblock %}
+  
+    </section>
+    {% block scripts %}
+    <script src="{{ url_for('static', filename='scripts/mode-script.js') }}"></script>
+    {% endblock %}
+</body>
+
+</html>

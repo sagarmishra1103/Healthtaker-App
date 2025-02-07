@@ -1,0 +1,80 @@
+body {
+    background-color: #F4F7F9 ; /* Soft light background to match index.html */
+}
+
+@media (max-width: 768px) {
+    .placeholder-image {
+        display: none;
+    }
+    
+    .container {
+        flex-direction: column; /* Stack elements vertically */
+        padding: 20px; /* Add padding for smaller screens */
+    }
+
+    .login-card {
+        width: 100%; /* Full width on smaller screens */
+        height: auto; /* Allow height to adjust based on content */
+    }
+}
+
+.login-header {
+    background-color: white; /* White background for the header */
+    padding: 10px; /* Add padding to the header */
+    border-radius: 0; /* Make the container rectangular */
+}
+
+.container {
+    padding: 10px; /* Add padding to the top and bottom of the container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+}
+
+.form-group {
+    padding-bottom: 10px;
+}
+
+.login-card {
+    background-color: rgba(255, 255, 255, 0.8); /* White background with 80% opacity */
+    box-shadow: none; /* Remove shadow */
+    border: none; /* Remove default border */
+    padding: 30px;
+    height: 80%; /* Ensure the login card takes full height */
+    display: flex; /* Added to center the content */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center the content vertically */
+}
+
+.placeholder-image {
+    height: 100%;
+    width: 100%;
+    display: flex; /* Added to center the image */
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.img-fluid {
+    border-radius: 10px;
+}
+
+.btn {
+    background-color: #32558a; /* Updated button color */
+    color: white; /* White text for buttons */
+    border-radius: 25px; /* Rounded buttons */
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #32558ad7; /* Updated hover color */
+}
+
+.login-background {
+    background-image: url('../assets/loginpage.jpg');
+    background-size: cover;
+    background-position: center;
+}

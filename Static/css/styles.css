@@ -1,0 +1,376 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins';
+}
+
+/* General styles for the application */
+body {
+    background-color: #F4F7F9; /* Light Gray */
+    color: #333333; /* Dark Gray */
+}
+
+/* Navbar */
+.navbar {
+    background-color: white !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    height: 80px;
+    opacity: 0.8;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    color: #333333;
+}
+
+.navbar-brand:hover {
+    color: #333333;
+}
+
+.navbar-brand img {
+    height: 43px;
+    margin-right: 20px;
+}
+.navbar-nav .nav-link {
+    position: relative; /* Enables positioning for the pseudo-element */
+    display: inline-block; /* Ensures proper layout for the underline */
+    padding: 8px 16px; /* Adjust padding for better spacing */
+    margin: 0 2px; /* Add spacing between nav links */
+    font-weight: 500;
+    padding-bottom: 5px; /* Add space for the underline */
+    color: #4A90E2 !important; /* Soft Blue */
+}
+
+.navbar-nav .nav-link::after {
+    content: ''; 
+    height: 3px; /* Adjust the thickness of the underline */
+    width: 60%; /* Adjust the underline width for a centered effect */
+    background: #6b97c4; /* Underline color */
+    position: absolute;
+    bottom: -5px; /* Position it directly below the link */
+    left: 50%; /* Position the center of the element */
+    transform: translateX(-50%) scaleX(0); /* Center-align and scale down initially */
+    transform-origin: center; /* Animate from the center */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s, transform 0.3s; /* Smooth animation */
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.focus::after {
+    opacity: 1; /* Make the underline visible */
+    transform: translateX(-50%) scaleX(1); /* Expand the underline */
+}
+
+
+.navbar-nav .btn1 {
+    background-color: #4A90E2; /* Soft Blue */
+    border: 2px solid transparent;
+    padding: 8px 16px;
+    color: white;    
+    font-weight: 500;
+}
+
+.navbar-nav .btn2 {
+    background-color: white; /* Soft Blue */
+    border: 2px solid transparent;
+    padding: 8px 16px;
+    color: #4A90E2;
+    border-color:#357AB8;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    font-weight: 500;
+}
+
+.navbar-nav .btn1:hover {
+    background-color: white ; /* Darker Blue */
+    border-color: rgb(17, 14, 44);
+    color: #357AB8; 
+}
+
+.navbar-nav .btn2:hover {
+    background-color: #357AB8; /* Darker Blue */
+    color: white;   
+}
+
+.nav-item {
+    margin-right: 15px; /* Increase the gap between navbar items */
+}
+
+/* Hero Section */
+.hero-section {
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+}
+
+.hero-content .btn {
+    background-color: #F5A623; /* Warm Yellow */
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.25rem;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.hero-content .btn:hover {
+    background-color: #D4881F; /* Darker Yellow */
+}
+
+.hero-section {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* About Section */
+.about-section {
+    padding: 60px 0;
+}
+
+.about-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-size: 1.25rem;
+}
+
+/* Lorem Ipsum Section */
+.lorem-section {
+    padding: 60px 0;
+}
+
+.lorem-section p {
+    font-size: 1.25rem;
+    text-align: justify;
+}
+
+/* Services Section */
+.services-section {
+    padding: 60px 0;
+}
+
+.services-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.services-section .card {
+    margin-bottom: 30px;
+}
+
+.services-section .card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.services-section .card-text {
+    font-size: 1rem;
+    text-align: justify;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    padding: 60px 0;
+    background-color: #f8f9fa; /* Light background */
+}
+
+.testimonials-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.testimonials-section .card {
+    margin-bottom: 30px;
+}
+
+.testimonials-section .card-text {
+    font-size: 1rem;
+    text-align: justify;
+}
+
+/* Feedback Section */
+.feedback-section {
+    padding: 60px 0;
+}
+
+.feedback-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.feedback-section p {
+    font-size: 1.25rem;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 60px 0;
+}
+
+.contact-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    font-size: 1.25rem;
+}
+
+.contact-section .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-section .btn {
+    background-color: #4A90E2; /* Soft Blue */
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.25rem;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.contact-section .btn:hover {
+    background-color: #357AB8; /* Darker Blue */
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #f8f9fa; /* Light background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h5 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    color: #4A90E2; /* Soft Blue */
+    text-decoration: none;
+    font-size: 1.25rem;
+}
+
+.sidebar ul li a:hover {
+    color: #357AB8; /* Darker Blue */
+}
+
+/* Animation for fade-in effect */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.fade-in {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.card {
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+    animation-delay: 0.3s;
+}
+
+/* Footer styles */
+.footer {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+
+
+.sidebar {
+    background-color: #f8f9fa;
+    border-right: 1px solid #ddd;
+    height: 100vh;
+}
+
+.sidebar ul {
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 20px;
+    display: block;
+    border-radius: 4px;
+}
+
+.sidebar ul li a:hover {
+    background-color: #4A90E2;
+    color: white;
+}
+
+.main-content {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+canvas {
+    height: 300px; /* Set a fixed height */
+    width: 100%;   /* Make it responsive */
+}

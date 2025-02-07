@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}HealthTaker - Blogs{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/blogs.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="content-wrapper d-flex flex-column min-vh-100">
+        <main class="container my-4 pt-4 flex-grow-1">  
+
+            <div class="content-justify">
+                <h2>Health & Medicine Blogs</h2>
+                <p>Welcome to our blog section, where we share the latest insights, tips, and updates on health and medicine. Stay informed and learn more about managing your well-being.</p>
+
+                <h3 class="mt-4">Latest Posts</h3>
+                <div class="row">
+                    <!-- Blog Post 1 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="{{ url_for('static', filename='assets/med-info.png') }}" alt="Blog Post 1" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Understanding Your Health Reports</h5>
+                                <p class="card-text">Learn how to analyze your health reports and understand key indicators that can help improve your health.</p>
+                                <a href="https://www.aihw.gov.au/reports/australias-health/what-is-health" class="btn btn-primary">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Post 2 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="{{ url_for('static', filename='assets/health-report.png') }}" alt="Blog Post 2" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Top 5 Tips for Maintaining a Healthy Lifestyle</h5>
+                                <p class="card-text">Here are some practical tips to help you lead a healthy and balanced lifestyle every day.</p>
+                                <a href="https://www.aihw.gov.au/reports/australias-health/what-is-health" class="btn btn-primary">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Post 3 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="{{ url_for('static', filename='assets/contact.jpg') }}" alt="Blog Post 3" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">How to Choose the Right Medicine for Your Condition</h5>
+                                <p class="card-text">Choosing the right medicine can be difficult. In this post, we explain how to make informed decisions.</p>
+                                <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7741175/" class="btn btn-primary">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- End of content-justify div -->
+       
+        </main> 
+      
+   {% endblock %}
+
