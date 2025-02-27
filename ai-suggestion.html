@@ -1,0 +1,50 @@
+{% extends "Services_template.html" %}
+
+{% block headcss %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/aisuggestion.css') }}">
+    <title>Health Suggestion by AI</title>
+{% endblock %}
+
+{% block headertext %} Health Suggestion by AI (Gemini) {% endblock %}
+
+{% block mainbody %}
+    <div class="ai-health-info">
+        <div class="ai-health-info-container">
+            <p>Enter your feelings and symptoms to receive AI-generated health suggestions.</p>
+            <div class="ai-health-search-box" style="text-align: center;">
+                <form method="POST" action="{{ url_for('ai.get_ai_health_suggestion') }}">
+                   <div class="text-input"> <input type="text" name="feelingInput" id="feelingInput" placeholder="How are you feeling right now?" required>
+                    <br>
+                    <br>
+                    <input type="text" name="symptomsInput" id="symptomsInput" placeholder="Describe your symptoms..." required>
+                    <br>
+                    </div>
+                    <div class="button-div">
+                        <button type="submit">Get Suggestions</button>
+                    </div>
+                </form>
+                
+        </div>
+
+            {% if response %}
+            <div class="ai-health-info-result">
+                <h4 class="third-text">Health Suggestions</h4>
+                <div class="ai-health-info-content">
+                    <p><strong>What I understood:</strong> {{ response.summary }}</p>
+                    <p><strong>Here are my suggestions based on your feelings and symptoms:</strong></p>
+                    <ul>
+                        {% for suggestion in response.suggestions %}
+                        <li>{{ suggestion }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% else %}
+            <div class="ai-health-info-result">
+                <p>Enter your feelings and symptoms to receive AI-generated health suggestions.</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+Z

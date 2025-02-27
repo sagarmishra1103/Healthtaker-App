@@ -238,7 +238,8 @@ boday.dark .sidebar li a:hover .text{
 .menu-bar .mode{
     background: var(--primary-color-light);
     position: relative;
-    border-radius: 6px;
+    border-radius: 6px; 
+    
    
 }
 

@@ -1,0 +1,56 @@
+{% extends "services_template.html" %}
+
+{% block headcss %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/health-report.css') }}">
+    <title>Health Report Analysis</title>
+    <script>
+        async function analyzeReport() {
+            const formData = new FormData();
+            const fileInput = document.getElementById("fileInput");
+            
+            if (!fileInput.files.length) {
+                alert("Please select a file to upload.");
+                return;
+            }
+            
+            formData.append("file", fileInput.files[0]);
+    
+            const response = await fetch("/analyze", {
+                method: "POST",
+                body: formData
+            });
+    
+            const data = await response.json();
+            document.getElementById("result").innerText = data.description;
+        }
+
+        
+    </script>
+{% endblock %}
+
+{% block headertext %}
+    Health Report Analyzer
+{% endblock %}
+
+{% block mainbody %}
+    <div class="health-report">
+        <div class="health-report-container">
+            <div class="upload-heading">Upload your Health Report here...</div>
+            <div class="upload-section">
+                <h2>Upload Your Health Report</h2>
+                <form>
+                    <input type="file" id="fileInput" class="file-input">
+                    <button type="button" onclick="analyzeReport()" class="submit-btn">Submit</button>
+                </form>
+            </div>
+
+            <div class="result-section">
+                <h3 style="padding-top: 10px; padding-bottom: 20px;">Analysis of the report</h3>
+                <div class="result-box">
+                    <p id="result">Your analysis result will appear here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

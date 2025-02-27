@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthtaker - Sign Up</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+    <script src="{{ url_for('static', filename='js/validation.js') }}"></script>
+</head>
+
+<body>
+    <div class="content-wrapper d-flex flex-column min-vh-100">
+        
+        <main class="container my-4 pt-4 flex-grow-1">
+    <div class="container">
+        <div class="row justify-content-center align-items-center" style="border-radius: 20px; height: 110vh; width: 100%; box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);">
+
+            <div class="col-md-7 d-flex justify-content-center align-items-center" style="height: 100%; border-radius:20px; background-color:  #9cacd4;">
+                
+                <form class="justify-content-center" method="POST" action="/signup" onsubmit="return validateForm()" style="width: 95%; padding:auto; height: 95%; background-color: white; border-radius: 20px; padding: 30px;">
+                    <h2 class="text-center">Create an account</h2>
+                    <p class="text-center" style="padding-bottom: 20px;">Already have an account? <a href="login">Login</a></p>
+
+                    <div class="form-row justify-content-center">
+                        <div class="form-group col-md-6">
+                            <label for="first-name">First Name</label>
+                            <input type="text" class="form-control" id="first-name" name="firstname" placeholder="Enter first name" required aria-required="true">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" class="form-control" id="last-name" name="lastname" placeholder="Enter last name" required aria-required="true">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact">Contact No</label>
+                        <input type="text" class="form-control" id="contact" name="contact_no" placeholder="Enter contact number" required aria-required="true">
+                    </div>
+                    <div class="form-row align-items-center">
+                        <div class="form-group col-md-9">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required oninput="checkPasswordStrength()" aria-required="true" oncopy="return false" onpaste="return false">
+                            <div id="strength-meter" class="strength-meter"></div>
+                        </div>
+                        <div class="col-md-3">
+                            <div id="password-strength" class="password-strength-indicator"></div>
+                        </div>
+                    </div>
+                    <div class="form-row align-items-center">
+                        <div class="form-group col-md-9">
+                            <label for="confirm-password">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirm-password" name="confirm_password" placeholder="Confirm password" required oninput="checkPasswordMatch()" aria-required="true" oncopy="return false" onpaste="return false">
+                        </div>
+                        <div class="col-md-3">
+                            <div id="password-match" class="password-strength-indicator"></div>
+                        </div>
+                    </div>
+                    <button type="submit" style="padding-top: 10px;" class="btn  btn-block">Sign Up</button>
+                    <div id="form-message" class="text-success mt-2"></div> <!-- Success/Error message -->
+                </form>
+            </div>
+
+            <div class="col-md-5 d-flex justify-content-center align-items-center" style="height: 100%;background-color: white; padding: 20px;">
+                <div class="placeholder-image" style="height: 100%; width: 100%; position: relative;">
+                    <img src="{{ url_for('static', filename='assets/login-page/leftside-image.svg') }}" alt="Placeholder Image" class="img-fluid">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+    </div>
+
+    <script>
+        function checkPasswordStrength() {
+            const password = document.getElementById('password').value;
+            const strengthText = document.getElementById('password-strength');
+            const strengthMeter = document.getElementById('strength-meter');
+
+            let strength = 0;
+            const regex = {
+                lower: /[a-z]/,
+                upper: /[A-Z]/,
+                number: /[0-9]/,
+                special: /[!@#$%^&*]/,
+                length: /.{8,}/
+            };
+
+            if (regex.lower.test(password)) strength++;
+            if (regex.upper.test(password)) strength++;
+            if (regex.number.test(password)) strength++;
+            if (regex.special.test(password)) strength++;
+            if (regex.length.test(password)) strength++;
+
+            switch (strength) {
+                case 0:
+                case 1:
+                    strengthText.textContent = 'Weak';
+                    strengthText.style.color = 'red';
+                    strengthMeter.style.width = '33%';
+                    strengthMeter.style.backgroundColor = 'red';
+                    break;
+                case 2:
+                case 3:
+                    strengthText.textContent = 'Medium';
+                    strengthText.style.color = 'yellow';
+                    strengthMeter.style.width = '66%';
+                    strengthMeter.style.backgroundColor = 'yellow';
+                    break;
+                case 4:
+                case 5:
+                    strengthText.textContent = 'Strong';
+                    strengthText.style.color = 'green';
+                    strengthMeter.style.width = '100%';
+                    strengthMeter.style.backgroundColor = 'green';
+                    break;
+                default:
+                    strengthText.textContent = '';
+                    strengthMeter.style.width = '0%';
+            }
+        }
+
+        function checkPasswordMatch() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const passwordMatchText = document.getElementById('password-match');
+
+            if (password === confirmPassword) {
+                passwordMatchText.textContent = 'Passwords match!';
+                passwordMatchText.style.color = 'green';
+            } else {
+                passwordMatchText.textContent = 'Passwords do not match!';
+                passwordMatchText.style.color = 'red';
+            }
+        }
+
+        function validateForm() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return false; // Prevent form submission
+            }
+            return true; // Allow form submission
+        }
+    </script>
+
+</body>
+
+</html>

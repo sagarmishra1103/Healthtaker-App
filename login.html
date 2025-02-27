@@ -1,0 +1,53 @@
+z<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthtaker - Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <script src="{{ url_for('static', filename='js/validation.js') }}"></script>
+</head>
+
+<body>
+    <div class="content-wrapper d-flex flex-column min-vh-100">
+        
+        <main class="container my-4 pt-4 flex-grow-1">
+            <div class="container" style="height: 100%;">
+                <div class="row justify-content-center align-items-center" style="border-radius: 20px;background-color: #9cacd4; height: 90vh; width: 90%; box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);">
+                    
+                    <div class="col-md-6 left-side-img d-flex justify-content-center align-items-center" style="height: 100%;border-radius: 20px;background-color: white; padding: 20px;">
+                       <div class="placeholder-image" style="height: 100%; width: 100%; position: relative;">
+                            <a href="/" style="position: absolute; top: 10px; left: 10px; font-size: 24px;">&#8592; Back</a>
+                            <img src="{{ url_for('static', filename='assets/login-page/leftside-image.svg') }}" alt="Placeholder Image" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-md-6 d-flex justify-content-center align-items-center" style="height: 100%; padding: 20px; ">
+                        <div class="card login-card justify-content-center" style="width: 85%; padding: auto; height: 85%;">
+                            <h2 class="text-center">Welcome Back!</h2>
+                            <p class="text-center">Don't have an account? <a href="signup">Sign up</a></p>
+                            <form class="justify-content-center" style="padding-top: 20px;" method="POST" action="/login" onsubmit="return validateForm()">
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+<input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required aria-required="true" autocomplete="username">
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+<input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required aria-required="true" autocomplete="current-password">
+
+                                </div>
+                                <p class="text-right" style="margin-top: 0;"><a href="/forgot-password">Forgot Password?</a></p>
+                                <button type="submit" class="btn btn-block">Login</button>
+                                <div id="form-message" class="text-success mt-2"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
